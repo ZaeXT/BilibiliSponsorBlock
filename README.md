@@ -35,6 +35,8 @@
 
 本插件移植自插件[SponsorBlock](https://github.com/ajayyy/SponsorBlock)，保留了大部分的 UI 和使用方法，加入一些了小电视特色的功能。
 
+此Fork合并了[ Rickymtl 的提交](https://github.com/hanydd/BilibiliSponsorBlock/pull/64)，添加了Safari浏览器的支持。
+
 # 安装
 
 - 目前上架了[Chrome 应用商店](https://chromewebstore.google.com/detail/eaoelafamejbnggahofapllmfhlhajdd)，[火狐应用商店](https://addons.mozilla.org/en-US/firefox/addon/bilisponsorblock/)。如果你知道更多流行的浏览器插件商店，欢迎留言~
