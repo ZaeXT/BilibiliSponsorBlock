@@ -1,0 +1,81 @@
+{
+  "manifest_version": 3,
+  "permissions": [
+    "storage",
+    "scripting"
+  ],
+  "optional_permissions": [
+    "webNavigation"
+  ],
+  "host_permissions": [
+    "https://*.bilibili.com/*",
+    "http://*.bsbsb.top/*"
+  ],
+  "optional_host_permissions": [
+    "*://*/*"
+  ],
+  "content_scripts": [
+    {
+      "world": "ISOLATED",
+      "run_at": "document_start",
+      "matches": [
+        "https://*.bilibili.com/*"
+      ],
+      "exclude_matches": [
+        "https://live.bilibili.com/*"
+      ],
+      "all_frames": true,
+      "js": [
+        "./js/content.js"
+      ],
+      "css": [
+        "content.css",
+        "shared.css"
+      ]
+    },
+    {
+      "world": "MAIN",
+      "run_at": "document_start",
+      "matches": [
+        "https://*.bilibili.com/*"
+      ],
+      "exclude_matches": [
+        "https://live.bilibili.com/*"
+      ],
+      "all_frames": true,
+      "js": [
+        "./js/document.js"
+      ]
+    }
+  ],
+  "background": {
+    "service_worker": "./js/background.js"
+  },
+  "action": {
+    "default_title": "SponsorBlock",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/IconSponsorBlocker16px.png",
+      "32": "icons/IconSponsorBlocker32px.png",
+      "48": "icons/IconSponsorBlocker64px.png",
+      "128": "icons/IconSponsorBlocker128px.png"
+    }
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "icons/*.png",
+        "icons/*.svg",
+        "icons/*.ogg",
+        "popup.html",
+        "popup.css",
+        "content.css",
+        "shared.css",
+        "js/document.js"
+      ],
+      "matches": [
+        "https://*.bilibili.com/*"
+      ]
+    }
+  ]
+}

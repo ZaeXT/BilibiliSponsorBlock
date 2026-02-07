@@ -8,6 +8,7 @@ const fs = require("fs");
 const manifest = require("../manifest/manifest.json");
 const firefoxManifestExtra = require("../manifest/firefox-manifest-extra.json");
 const chromeManifestExtra = require("../manifest/chrome-manifest-extra.json");
+const safariManifestExtra = require("../manifest/safari-manifest-extra.json");
 
 // schema for options object
 const schema = {
@@ -39,6 +40,8 @@ class BuildManifest {
         // Add missing manifest elements
         if (this.options.browser.toLowerCase() === "firefox") {
             mergeObjects(manifest, firefoxManifestExtra);
+        } else if (this.options.browser.toLowerCase() === "safari") {
+            mergeObjects(manifest, safariManifestExtra);
         } else if (
             this.options.browser.toLowerCase() === "chrome" ||
             this.options.browser.toLowerCase() === "chromium" ||
